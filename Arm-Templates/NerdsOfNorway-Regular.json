@@ -4,42 +4,47 @@
     "parameters": {
         "mspOfferName": {
             "type": "string",
+            "defaultValue": "NerdsOfNorway",
             "metadata": {
-                "description": "Specify a unique name for your offer"
-            },
-            "defaultValue": "<to be filled out by MSP> Specify a title for your offer"
-
+                "description": "Specify the name of the offer from the Managed Service Provider"
+            }
         },
         "mspOfferDescription": {
             "type": "string",
+            "defaultValue": "This is the ultimate MSP",
             "metadata": {
                 "description": "Name of the Managed Service Provider offering"
-            },
-            "defaultValue": "<to be filled out by MSP> Provide a brief description of your offer"
+            }
         },
         "managedByTenantId": {
             "type": "string",
             "metadata": {
                 "description": "Specify the tenant id of the Managed Service Provider"
             },
-            "defaultValue": "<to be filled out by MSP> Provide your tenant id"
+            "defaultValue": "20292530-b1ac-401d-be5c-24bc04a19791"
         },
         "authorizations": {
             "type": "array",
+
             "metadata": {
                 "description": "Specify an array of objects, containing tuples of Azure Active Directory principalId, a Azure roleDefinitionId, and an optional principalIdDisplayName. The roleDefinition specified is granted to the principalId in the provider's Active Directory and the principalIdDisplayName is visible to customers."
             },
             "defaultValue": [
-                { 
-                    "principalId": "ee8f6d35-15f2-4252-b1b8-591358e8a244", 
-                    "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
-                    "principalIdDisplayName": "PIM_Group" 
-                }, 
-                { 
-                    "principalId": "ee8f6d35-15f2-4252-b1b8-591358e8a244", 
-                    "roleDefinitionId": "91c1777a-f3dc-4fae-b103-61d183457e46",
-                    "principalIdDisplayName": "PIM_Group" 
-                }   
+                {
+                    "principalId": "b641010a-c528-49dc-abbc-beeb9f05c808",
+                    "principalIdDisplayName": "Tier 1 Support",
+                    "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c"
+                },
+                {
+                    "principalId": "262d3e8b-a1cc-45ea-944c-112dd735169c",
+                    "principalIdDisplayName": "Automation Account - Full access",
+                    "roleDefinitionId": "18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+                    "delegatedRoleDefinitionIds": [
+                        "b24988ac-6180-42a0-ab88-20f7382dd24c",
+                        "92aaf0da-9dab-42b6-94a3-d43ce8d16293",
+                        "91c1777a-f3dc-4fae-b103-61d183457e46"
+                    ]
+                }                
             ]
         }              
     },
@@ -50,7 +55,7 @@
     "resources": [
         {
             "type": "Microsoft.ManagedServices/registrationDefinitions",
-            "apiVersion": "2019-09-01",
+            "apiVersion": "2019-06-01",
             "name": "[variables('mspRegistrationName')]",
             "properties": {
                 "registrationDefinitionName": "[parameters('mspOfferName')]",
@@ -61,7 +66,7 @@
         },
         {
             "type": "Microsoft.ManagedServices/registrationAssignments",
-            "apiVersion": "2019-09-01",
+            "apiVersion": "2019-06-01",
             "name": "[variables('mspAssignmentName')]",
             "dependsOn": [
                 "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
