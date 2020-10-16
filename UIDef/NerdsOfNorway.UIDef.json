@@ -1,48 +1,56 @@
-{
-    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+{    
     "handler": "Microsoft.Azure.CreateUIDef",
     "version": "0.1.2-preview",
     "parameters": {
         "config": {
             "isWizard": false,
-            "basics": { 
-                "subscription": {
-                    "constraints": {
-                        "validations": [
-                            {
-                                "isValid": "[expression for checking]",
-                                "message": "Please select a valid subscription."
-                            },
-                            {
-                                "permission": "Microsoft.ManagedServices/registrationDefinition",
-                                "message": "Need to be able to create registrationDefinition."
-                            },
-                            {
-                                "permission": "Microsoft.ManagedServices/registrationAssignments",
-                                "message": "Need to be able to create registrationAssignment."
-                            }
-                          
-                        ]
-                    },
-                    "resourceProviders": [
-                        "Microsoft.ManagedServices"
-                    ]
-                },
-                "resourceGroup": {
-                    "constraints": {
-                        "validations": [
-                            {
-                                "isValid": "[expression for checking]",
-                                "message": "Please select a valid resource group."
-                            }
-                        ]
-                    },
-                    "allowExisting": true
-                }
-            }
+            "basics": { }
         },
         "basics": [ ],
-        "steps": [ ],
+        "steps": [ 
+            {
+                "name": "defaultSettings",
+                "label": "Default settings",
+                "subLabel": {
+                    "preValidation": "Select a set of roles",
+                    "postValidation": "Done"
+                },
+                "bladeTitle": "Roles and offering",
+                "elements": [
+                    {
+                        "name": "infoBox0",
+                        "type": "Microsoft.Common.InfoBox",
+                        "visible": true,
+                        "options": {
+                            "icon": "Info",
+                            "text": "ARM deployment requires access at the tenant root (/) scope. Visit this link to ensure you have the appropriate RBAC permission to complete the deployment",
+                            "uri": "https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin"
+                        }                    
+                    },
+                    {
+                        "name": "defaultRoles",
+                        "type": "Microsoft.Common.OptionsGroup",
+                        "label": "Deploy default roles",
+                        "defaultValue": "Yes (recommended)",
+                        "toolTip": "If 'Yes' is selected - we will get contributor access to the selected subscription.",
+                        "constraints": {
+                            "allowedValues": [
+                                {
+                                    "label": "Yes (recommended)",
+                                    "value": "Yes"
+                                },
+                                {
+                                    "label": "No",
+                                    "value": "No"
+                                }
+                            ]
+                        },
+                        "visible": true
+                    }
+                ]
+            }
+
+        ],
         "outputs": { },
         "resourceTypes": [ ]
     }
