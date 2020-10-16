@@ -18,7 +18,7 @@ param authorizations array = [
         ]
     }             
 ]
-
+// Test
 var mspRegistrationName = guid(mspOfferName)
 var mspAssignmentName = guid(mspOfferName)
 
