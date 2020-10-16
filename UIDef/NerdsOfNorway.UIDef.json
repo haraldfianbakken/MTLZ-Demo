@@ -10,7 +10,7 @@
         "steps": [ 
             {
                 "name": "defaultSettings",
-                "label": "Select roles and offer name",
+                "label": "Select roles and delegations",
                 "subLabel": {
                     "preValidation": "Select a set of roles",
                     "postValidation": "Done"
