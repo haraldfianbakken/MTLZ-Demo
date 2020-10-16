@@ -14,13 +14,18 @@
                                 "message": "Please select a valid subscription."
                             },
                             {
-                                "permission": "<Resource Provider>/<Action>",
-                                "message": "Must have correct permission to complete this step."
+                                "permission": "Microsoft.ManagedServices/registrationDefinition",
+                                "message": "Need to be able to create registrationDefinition."
+                            },
+                            {
+                                "permission": "Microsoft.ManagedServices/registrationAssignments",
+                                "message": "Need to be able to create registrationAssignment."
                             }
+                          
                         ]
                     },
                     "resourceProviders": [
-                        "<Resource Provider>"
+                        "Microsoft.ManagedServices"
                     ]
                 },
                 "resourceGroup": {
