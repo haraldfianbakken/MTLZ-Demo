@@ -8,21 +8,15 @@
     },
     "mspOfferDescription": {
       "type": "string",
-      "defaultValue": "The ultimate MSP"
+      "defaultValue": "This is the ultimate MSP"
     },
     "managedByTenantId": {
       "type": "string",
-      "defaultValue": ""
+      "defaultValue": "20292530-b1ac-401d-be5c-24bc04a19791"
     },
     "authorizations": {
       "type": "array",
-      "defaultValue": [
-        {
-          "principalId": "ee8f6d35-15f2-4252-b1b8-591358e8a244",
-          "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
-          "principalIdDisplayName": "PIM_Group"
-        }
-      ]
+      "defaultValue": []
     }
   },
   "functions": [],
