@@ -18,7 +18,7 @@ jobs:
       shell: bash
       run: |
         shopt -s globstar
-        ls -altR **/sample*.*
+        ls -altR Bicep/*.*
 
     - name: Test Generated ARM Templates
       id: pathtest
