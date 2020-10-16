@@ -24,7 +24,8 @@ jobs:
       id: pathtest
       uses: aliencube/arm-ttk-actions@v0.3
       with:
-        path: ./Bicep    
+        path: ./Bicep 
+        files: NerdsOfNorway.json   
 
     - name: Test result - path
       shell: bash
@@ -37,7 +38,7 @@ jobs:
       uses: aliencube/arm-ttk-actions@v0.3
       with:
         path: ./Arm-Templates    
-
+        files: NerdsOfNorway-Regular.json
     - name: Test arm - path
       shell: bash
       continue-on-error: true

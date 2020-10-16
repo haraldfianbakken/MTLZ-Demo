@@ -1,0 +1,44 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+    "handler": "Microsoft.Azure.CreateUIDef",
+    "version": "0.1.2-preview",
+    "parameters": {
+        "config": {
+            "isWizard": false,
+            "basics": { 
+                "subscription": {
+                    "constraints": {
+                        "validations": [
+                            {
+                                "isValid": "[expression for checking]",
+                                "message": "Please select a valid subscription."
+                            },
+                            {
+                                "permission": "<Resource Provider>/<Action>",
+                                "message": "Must have correct permission to complete this step."
+                            }
+                        ]
+                    },
+                    "resourceProviders": [
+                        "<Resource Provider>"
+                    ]
+                },
+                "resourceGroup": {
+                    "constraints": {
+                        "validations": [
+                            {
+                                "isValid": "[expression for checking]",
+                                "message": "Please select a valid resource group."
+                            }
+                        ]
+                    },
+                    "allowExisting": true
+                }
+            }
+        },
+        "basics": [ ],
+        "steps": [ ],
+        "outputs": { },
+        "resourceTypes": [ ]
+    }
+}
