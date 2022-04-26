@@ -36,8 +36,8 @@
                     "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c"
                 },
                 {
-                    "principalId": "262d3e8b-a1cc-45ea-944c-112dd735169c",
-                    "principalIdDisplayName": "Automation Account - Full access",
+                    "principalId": "1757b9e4-70e7-4866-93f2-345526ec73c1",
+                    "principalIdDisplayName": "Policy and automation",
                     "roleDefinitionId": "18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
                     "delegatedRoleDefinitionIds": [
                         "b24988ac-6180-42a0-ab88-20f7382dd24c",
